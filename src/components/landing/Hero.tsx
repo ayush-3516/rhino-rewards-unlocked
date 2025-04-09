@@ -3,6 +3,20 @@ import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 
 const Hero = () => {
+  const handleDownloadClick = () => {
+    const downloadSection = document.getElementById('download');
+    if (downloadSection) {
+      downloadSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleLearnMoreClick = () => {
+    const featuresSection = document.getElementById('features');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
       <div className="container mx-auto px-6">
@@ -16,11 +30,18 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              <Button className="bg-rhino-purple hover:bg-rhino-purple-dark text-white text-lg py-6 px-8 flex items-center gap-2">
+              <Button 
+                className="bg-rhino-purple hover:bg-rhino-purple-dark text-white text-lg py-6 px-8 flex items-center gap-2"
+                onClick={handleDownloadClick}
+              >
                 <Download size={20} />
                 Download App
               </Button>
-              <Button variant="outline" className="border-rhino-purple text-rhino-purple hover:bg-rhino-purple-light/10 text-lg py-6 px-8">
+              <Button 
+                variant="outline" 
+                className="border-rhino-purple text-rhino-purple hover:bg-rhino-purple-light/10 text-lg py-6 px-8"
+                onClick={handleLearnMoreClick}
+              >
                 Learn More
               </Button>
             </div>

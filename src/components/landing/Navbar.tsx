@@ -18,6 +18,13 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleDownloadClick = () => {
+    const downloadSection = document.getElementById('download');
+    if (downloadSection) {
+      downloadSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const navLinks = [
     { name: 'Features', href: '#features' },
     { name: 'How It Works', href: '#how-it-works' },
@@ -45,7 +52,10 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <Button className="bg-rhino-purple hover:bg-rhino-purple-dark text-white">
+            <Button 
+              className="bg-rhino-purple hover:bg-rhino-purple-dark text-white"
+              onClick={handleDownloadClick}
+            >
               Download App
             </Button>
           </nav>
@@ -77,7 +87,13 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <Button className="bg-rhino-purple hover:bg-rhino-purple-dark text-white w-full">
+              <Button 
+                className="bg-rhino-purple hover:bg-rhino-purple-dark text-white w-full"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  handleDownloadClick();
+                }}
+              >
                 Download App
               </Button>
             </nav>
